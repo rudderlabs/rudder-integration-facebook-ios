@@ -1,10 +1,10 @@
 use_frameworks!
 
-platform :ios, '8.0'
+platform :ios, '9.0'
 
 target 'Rudder-Facebook_Example' do
   pod 'Rudder-Facebook', :path => '../'
-
+  
   target 'Rudder-Facebook_Tests' do
     inherit! :search_paths
 
