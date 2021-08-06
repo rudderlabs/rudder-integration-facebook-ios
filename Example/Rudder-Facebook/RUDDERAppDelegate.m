@@ -17,8 +17,8 @@
 {
     // Override point for customization after application launch.
     
-    NSString *writeKey = @"1vqBRSLN79i8T7Mcl6zzRsWqdO8";
-    NSString *dataPlaneUrl = @"https://8469dc164c06.ngrok.io";
+    NSString *writeKey = @"1wMNDtacXtAXOncZ0trfpLbnHvZ";
+    NSString *dataPlaneUrl = @"https://ac0243a3d0d4.ngrok.io";
 
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
@@ -26,11 +26,16 @@
     
     RSConfigBuilder *configBuilder = [[RSConfigBuilder alloc] init];
     [configBuilder withDataPlaneUrl:dataPlaneUrl];
+    [configBuilder withLoglevel:RSLogLevelVerbose];
+    [configBuilder withControlPlaneUrl:@"https://api.dev.rudderlabs.com"];
     [configBuilder withFactory:[RudderFacebookFactory instance]];
     RSClient *rudderClient = [RSClient getInstance:writeKey config:[configBuilder build]];
     
     [rudderClient track:@"level_up"];
-    [rudderClient track:@"daily_rewards_claim"];
+    [rudderClient track:@"daily_rewards_claim" properties:@{
+        @"revenue":@"346",
+        @"name":@"tyres"
+    }];
     [rudderClient track:@"revenue"];
     
     [rudderClient screen:@"Main Screen"];
@@ -42,6 +47,11 @@
                                           @"key_2" : @"value_2"
                                  }
      ];
+    [[RSClient sharedInstance] group:@"sample_group_id"
+                                  traits:@{@"foo": @"bar",
+                                           @"foo1": @"bar1",
+                                           @"email": @"ruchira@gmail.com"}
+    ];
     
     return YES;
 }

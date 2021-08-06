@@ -50,15 +50,15 @@
           <dict>
           <key>CFBundleURLSchemes</key>
           <array>
-            <string>FBAPPID</string>
+            <string>fbAPPID</string>
           </array>
           </dict>
         </array>
         <key>FacebookAppID</key>
-        <string>FBAPPID</string>
+        <string>APPID</string>
         <key>FacebookClientToken</key>
         <string>CLIENTOKEN</string>
         <key>FacebookDisplayName</key>
-        <string>DisplayName</string>
+        <string>DISPLAYNAME</string>
     </dict>
 </plist>

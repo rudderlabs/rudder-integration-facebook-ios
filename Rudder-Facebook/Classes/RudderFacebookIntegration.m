@@ -7,6 +7,8 @@
 
 #import "RudderFacebookIntegration.h"
 
+static NSArray* events;
+
 @implementation RudderFacebookIntegration
 
 - (instancetype)initWithConfig:(NSDictionary *)config withAnalytics:(RSClient *)client {
@@ -15,6 +17,8 @@
         self.limitedDataUse = [config[@"limitedDataUse"] boolValue];
         self.dpoState = [config[@"dpoState"] intValue];
         self.dpoCountry = [config[@"dpoCountry"] intValue];
+        
+        events = @[@"identify", @"track", @"screen"];
         
         if (self.limitedDataUse) {
             [FBSDKSettings setDataProcessingOptions:@[@"LDU"] country:self.dpoCountry state:self.dpoState];
@@ -28,58 +32,70 @@
 }
 
 - (void) processRuderEvent: (nonnull RSMessage *) message {
-    NSString *type = message.type;
-    if ([type isEqualToString:@"identify"]) {
-        [FBSDKAppEvents setUserID:message.userId];
-        NSDictionary *address = (NSDictionary*) message.context.traits[@"address"];
-        [FBSDKAppEvents setUserData:[[NSString alloc] initWithFormat:@"%@", message.context.traits[@"email"]] forType:FBSDKAppEventEmail];
-        [FBSDKAppEvents setUserData:[[NSString alloc] initWithFormat:@"%@", message.context.traits[@"firstName"]] forType:FBSDKAppEventFirstName];
-        [FBSDKAppEvents setUserData:[[NSString alloc] initWithFormat:@"%@", message.context.traits[@"lastName"]] forType:FBSDKAppEventLastName];
-        [FBSDKAppEvents setUserData:[[NSString alloc] initWithFormat:@"%@", message.context.traits[@"phone"]] forType:FBSDKAppEventPhone];
-        [FBSDKAppEvents setUserData:[[NSString alloc] initWithFormat:@"%@", message.context.traits[@"birthday"]] forType:FBSDKAppEventDateOfBirth];
-        [FBSDKAppEvents setUserData:[[NSString alloc] initWithFormat:@"%@", message.context.traits[@"gender"]] forType:FBSDKAppEventGender];
-        [FBSDKAppEvents setUserData:[[NSString alloc] initWithFormat:@"%@", address[@"city"]] forType:FBSDKAppEventCity];
-        [FBSDKAppEvents setUserData:[[NSString alloc] initWithFormat:@"%@", address[@"state"]] forType:FBSDKAppEventState];
-        [FBSDKAppEvents setUserData:[[NSString alloc] initWithFormat:@"%@", address[@"postalcode"]] forType:FBSDKAppEventZip];
-        [FBSDKAppEvents setUserData:[[NSString alloc] initWithFormat:@"%@", address[@"country"]] forType:FBSDKAppEventCountry];
-        
-    } else if ([type isEqualToString:@"track"]) {
-        
-        // FB Event Names must be <= 40 characters
-        NSString *truncatedEvent = [message.event substringToIndex: MIN(40, [message.event length])];
-        
-        // Revenue & currency tracking
-        NSNumber *revenue = [self extractRevenue:message.properties withKey:@"revenue"];
-        NSString *currency = [self extractCurrency:message.properties withKey:@"currency"];
-        
-        if (revenue) {
-            [FBSDKAppEvents logPurchase:[revenue doubleValue] currency:currency];
-            
-            // Custom event
-            NSMutableDictionary *properties = [message.properties mutableCopy];
-            [properties setObject:currency forKey:FBSDKAppEventParameterNameCurrency];
-            [FBSDKAppEvents logEvent:truncatedEvent
-                          valueToSum:[revenue doubleValue]
-                          parameters:properties];
-            
+    int label = [events indexOfObject:message.type];
+    switch(label)
+    {
+        case 0:
+        {
+            NSLog(@"Desu Identify reached");
+            [FBSDKAppEvents setUserID:message.userId];
+            NSDictionary *address = (NSDictionary*) message.context.traits[@"address"];
+            [FBSDKAppEvents setUserData:[[NSString alloc] initWithFormat:@"%@", message.context.traits[@"email"]] forType:FBSDKAppEventEmail];
+            [FBSDKAppEvents setUserData:[[NSString alloc] initWithFormat:@"%@", message.context.traits[@"firstName"]] forType:FBSDKAppEventFirstName];
+            [FBSDKAppEvents setUserData:[[NSString alloc] initWithFormat:@"%@", message.context.traits[@"lastName"]] forType:FBSDKAppEventLastName];
+            [FBSDKAppEvents setUserData:[[NSString alloc] initWithFormat:@"%@", message.context.traits[@"phone"]] forType:FBSDKAppEventPhone];
+            [FBSDKAppEvents setUserData:[[NSString alloc] initWithFormat:@"%@", message.context.traits[@"birthday"]] forType:FBSDKAppEventDateOfBirth];
+            [FBSDKAppEvents setUserData:[[NSString alloc] initWithFormat:@"%@", message.context.traits[@"gender"]] forType:FBSDKAppEventGender];
+            [FBSDKAppEvents setUserData:[[NSString alloc] initWithFormat:@"%@", address[@"city"]] forType:FBSDKAppEventCity];
+            [FBSDKAppEvents setUserData:[[NSString alloc] initWithFormat:@"%@", address[@"state"]] forType:FBSDKAppEventState];
+            [FBSDKAppEvents setUserData:[[NSString alloc] initWithFormat:@"%@", address[@"postalcode"]] forType:FBSDKAppEventZip];
+            [FBSDKAppEvents setUserData:[[NSString alloc] initWithFormat:@"%@", address[@"country"]] forType:FBSDKAppEventCountry];
+            break;
         }
-        else {
-            [FBSDKAppEvents logEvent:truncatedEvent
-                          parameters:message.properties];
+        case 1:
+        {
+            NSLog(@"Desu Track reached");
+            // FB Event Names must be <= 40 characters
+            NSString *truncatedEvent = [message.event substringToIndex: MIN(40, [message.event length])];
+            
+            // Revenue & currency tracking
+            NSNumber *revenue = [self extractRevenue:message.properties withKey:@"revenue"];
+            NSString *currency = [self extractCurrency:message.properties withKey:@"currency"];
+            
+            if (revenue) {
+                [FBSDKAppEvents logPurchase:[revenue doubleValue] currency:currency];
+                
+                // Custom event
+                NSMutableDictionary *properties = [message.properties mutableCopy];
+                [properties setObject:currency forKey:FBSDKAppEventParameterNameCurrency];
+                [FBSDKAppEvents logEvent:truncatedEvent
+                              valueToSum:[revenue doubleValue]
+                              parameters:properties];
+                
+            }
+            else {
+                [FBSDKAppEvents logEvent:truncatedEvent
+                              parameters:message.properties];
+            }
+            break;
         }
-    }
-    else if ([type isEqualToString:@"screen"]) {
-        // FB Event Names must be <= 40 characters
-        // 'Viewed' and 'Screen' with spaces take up 14
-        NSString *truncatedEvent = [message.event substringToIndex: MIN(26, [message.event length])];
-        NSString *event = [[NSString alloc] initWithFormat:@"Viewed %@ Screen", truncatedEvent];
-        [FBSDKAppEvents logEvent:event parameters:message.properties];
-        
-    }
-    else {
-        [RSLogger logWarn:@"MessageType is not supported"];
+        case 2:
+        {
+            NSLog(@"Desu screen reached");
+            // FB Event Names must be <= 40 characters
+            // 'Viewed' and 'Screen' with spaces take up 14
+            NSString *truncatedEvent = [message.event substringToIndex: MIN(26, [message.event length])];
+            NSString *event = [[NSString alloc] initWithFormat:@"Viewed %@ Screen", truncatedEvent];
+            [FBSDKAppEvents logEvent:event parameters:message.properties];
+            break;
+        }
+        default:
+            NSLog(@"Desu Unsupported call reached");
+            [RSLogger logWarn:@"MessageType is not supported"];
+            break;
     }
 }
+
 
 - (void)dump:(nonnull RSMessage *)message {
     [[NSOperationQueue mainQueue] addOperationWithBlock:^ {
