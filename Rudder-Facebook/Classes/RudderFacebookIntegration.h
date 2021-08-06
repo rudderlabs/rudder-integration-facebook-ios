@@ -8,15 +8,17 @@
 #import <Foundation/Foundation.h>
 #import <Rudder/Rudder.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKCoreKit_Basics/FBSDKUserDataStore.h>
+
 
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface RudderFacebookIntegration : NSObject<RSIntegration>
 
-@property (nonatomic, strong) NSDictionary *config;
-@property (nonatomic, strong) RSClient *client;
-@property (nonatomic, strong) FBSDKAppEvents *instance;
+@property (nonatomic) BOOL limitedDataUse;
+@property (nonatomic) int dpoState;
+@property (nonatomic) int dpoCountry;
 
 - (instancetype)initWithConfig:(NSDictionary *)config withAnalytics:(RSClient *)client;
 

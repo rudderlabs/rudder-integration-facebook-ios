@@ -9,6 +9,7 @@
 #import "RUDDERAppDelegate.h"
 #import <Rudder/Rudder.h>
 #import <RudderFacebookFactory.h>
+#import "FBSDKCoreKit.h"
 
 @implementation RUDDERAppDelegate
 
@@ -16,22 +17,41 @@
 {
     // Override point for customization after application launch.
     
-    NSString *writeKey = @"1Tb4GaOlGHOVE1EeeqBkUZPW4x5";
-    NSString *dataPlaneUrl = @"https://ba3b20fd.ngrok.io";
+    NSString *writeKey = @"1wMNDtacXtAXOncZ0trfpLbnHvZ";
+    NSString *dataPlaneUrl = @"https://ac0243a3d0d4.ngrok.io";
+
+    [[FBSDKApplicationDelegate sharedInstance] application:application
+                             didFinishLaunchingWithOptions:launchOptions];
+    [FBSDKSettings setAdvertiserTrackingEnabled:YES];
     
     RSConfigBuilder *configBuilder = [[RSConfigBuilder alloc] init];
     [configBuilder withDataPlaneUrl:dataPlaneUrl];
+    [configBuilder withLoglevel:RSLogLevelVerbose];
+    [configBuilder withControlPlaneUrl:@"https://api.dev.rudderlabs.com"];
     [configBuilder withFactory:[RudderFacebookFactory instance]];
     RSClient *rudderClient = [RSClient getInstance:writeKey config:[configBuilder build]];
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSLog(@"processor started");
-        
-        usleep(10000000);
-        [rudderClient track:@"level_up"];
-        [rudderClient track:@"daily_rewards_claim"];
-        [rudderClient track:@"revenue"];
-    });
+    [rudderClient track:@"level_up"];
+    [rudderClient track:@"daily_rewards_claim" properties:@{
+        @"revenue":@"346",
+        @"name":@"tyres"
+    }];
+    [rudderClient track:@"revenue"];
+    
+    [rudderClient screen:@"Main Screen"];
+    [[RSClient sharedInstance] identify:@"test_user_id"
+                                 traits:@{@"foo": @"bar",
+                                          @"foo1": @"bar1",
+                                          @"email": @"test@gmail.com",
+                                          @"key_1" : @"value_1",
+                                          @"key_2" : @"value_2"
+                                 }
+     ];
+    [[RSClient sharedInstance] group:@"sample_group_id"
+                                  traits:@{@"foo": @"bar",
+                                           @"foo1": @"bar1",
+                                           @"email": @"ruchira@gmail.com"}
+    ];
     
     return YES;
 }

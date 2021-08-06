@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5A853F29A9C0AD117EA6844C /* Pods_Rudder_Facebook_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F57B85EFCD012B5E276A93A /* Pods_Rudder_Facebook_Tests.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -21,9 +20,10 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
+		6084B39E71FCC28C0290EF30 /* Pods_Rudder_Facebook_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BD6D16EF8C5345E74359E83 /* Pods_Rudder_Facebook_Tests.framework */; };
+		6D1D013A9A5D32EF32CF706B /* Pods_Rudder_Facebook_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E5FAC4EC159E03FB465A63 /* Pods_Rudder_Facebook_Example.framework */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
-		BC2077A3457683FF648A3E26 /* Pods_Rudder_Facebook_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1CFB58AE0D73654DC2C206D /* Pods_Rudder_Facebook_Example.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,11 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		09DA8C183844BF380C6A211A /* Pods-Rudder-Facebook_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rudder-Facebook_Tests.release.xcconfig"; path = "Target Support Files/Pods-Rudder-Facebook_Tests/Pods-Rudder-Facebook_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		1AE7DBB3367A3F408D755FF7 /* Rudder-Facebook.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "Rudder-Facebook.podspec"; path = "../Rudder-Facebook.podspec"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		1F57B85EFCD012B5E276A93A /* Pods_Rudder_Facebook_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rudder_Facebook_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		27C56A821F732700A64A6377 /* Pods-Rudder-Facebook_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rudder-Facebook_Tests.debug.xcconfig"; path = "Target Support Files/Pods-Rudder-Facebook_Tests/Pods-Rudder-Facebook_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		411D23A12BA2EB78B6ED7859 /* Pods-Rudder-Facebook_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rudder-Facebook_Example.debug.xcconfig"; path = "Target Support Files/Pods-Rudder-Facebook_Example/Pods-Rudder-Facebook_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		5DA05A75A811621DED36DE87 /* Pods-Rudder-Facebook_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rudder-Facebook_Example.release.xcconfig"; path = "Target Support Files/Pods-Rudder-Facebook_Example/Pods-Rudder-Facebook_Example.release.xcconfig"; sourceTree = "<group>"; };
+		2C22DA1ADA0CC7327BA65563 /* Pods-Rudder-Facebook_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rudder-Facebook_Example.release.xcconfig"; path = "Target Support Files/Pods-Rudder-Facebook_Example/Pods-Rudder-Facebook_Example.release.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* Rudder-Facebook_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rudder-Facebook_Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -62,11 +60,17 @@
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8451164D92DE19C037A4F29E /* Pods-Rudder-Facebook_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rudder-Facebook_Example.debug.xcconfig"; path = "Target Support Files/Pods-Rudder-Facebook_Example/Pods-Rudder-Facebook_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8BD6D16EF8C5345E74359E83 /* Pods_Rudder_Facebook_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rudder_Facebook_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92CCAB0107622F92A208C03C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		A1CFB58AE0D73654DC2C206D /* Pods_Rudder_Facebook_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rudder_Facebook_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EFCFD3D599563857B499A9A1 /* Pods-Rudder-Facebook_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rudder-Facebook_Tests.release.xcconfig"; path = "Target Support Files/Pods-Rudder-Facebook_Tests/Pods-Rudder-Facebook_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		A4FEC8ABE8E88384382BB93C /* Pods-Rudder-Facebook_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rudder-Facebook_Tests.debug.xcconfig"; path = "Target Support Files/Pods-Rudder-Facebook_Tests/Pods-Rudder-Facebook_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		A7E5FAC4EC159E03FB465A63 /* Pods_Rudder_Facebook_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rudder_Facebook_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2EFD74C388DE3FE8CEACCF3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		F6BBD03F26AAA30800398B07 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6BBD04126AAA32400398B07 /* FBSDKCoreKit_Basics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKCoreKit_Basics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6BBD04326AAA35300398B07 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6BBD04526AAA35900398B07 /* FBSDKCoreKit_Basics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKCoreKit_Basics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +81,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				BC2077A3457683FF648A3E26 /* Pods_Rudder_Facebook_Example.framework in Frameworks */,
+				6D1D013A9A5D32EF32CF706B /* Pods_Rudder_Facebook_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,7 +92,7 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				5A853F29A9C0AD117EA6844C /* Pods_Rudder_Facebook_Tests.framework in Frameworks */,
+				6084B39E71FCC28C0290EF30 /* Pods_Rudder_Facebook_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,12 +123,16 @@
 		6003F58C195388D20070C39A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F6BBD04526AAA35900398B07 /* FBSDKCoreKit_Basics.framework */,
+				F6BBD04326AAA35300398B07 /* FBSDKCoreKit.framework */,
+				F6BBD04126AAA32400398B07 /* FBSDKCoreKit_Basics.framework */,
+				F6BBD03F26AAA30800398B07 /* FBSDKCoreKit.framework */,
 				6003F58D195388D20070C39A /* Foundation.framework */,
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				A1CFB58AE0D73654DC2C206D /* Pods_Rudder_Facebook_Example.framework */,
-				1F57B85EFCD012B5E276A93A /* Pods_Rudder_Facebook_Tests.framework */,
+				A7E5FAC4EC159E03FB465A63 /* Pods_Rudder_Facebook_Example.framework */,
+				8BD6D16EF8C5345E74359E83 /* Pods_Rudder_Facebook_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -188,10 +196,10 @@
 		68D297F4FF82129642E8963F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				411D23A12BA2EB78B6ED7859 /* Pods-Rudder-Facebook_Example.debug.xcconfig */,
-				5DA05A75A811621DED36DE87 /* Pods-Rudder-Facebook_Example.release.xcconfig */,
-				27C56A821F732700A64A6377 /* Pods-Rudder-Facebook_Tests.debug.xcconfig */,
-				EFCFD3D599563857B499A9A1 /* Pods-Rudder-Facebook_Tests.release.xcconfig */,
+				8451164D92DE19C037A4F29E /* Pods-Rudder-Facebook_Example.debug.xcconfig */,
+				2C22DA1ADA0CC7327BA65563 /* Pods-Rudder-Facebook_Example.release.xcconfig */,
+				A4FEC8ABE8E88384382BB93C /* Pods-Rudder-Facebook_Tests.debug.xcconfig */,
+				09DA8C183844BF380C6A211A /* Pods-Rudder-Facebook_Tests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -203,11 +211,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "Rudder-Facebook_Example" */;
 			buildPhases = (
-				9FD35980636A6330FB0A3FA7 /* [CP] Check Pods Manifest.lock */,
+				7CAAB3DE392F5E765CEF96D8 /* [CP] Check Pods Manifest.lock */,
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				3AF4DC379B4616597016AE6A /* [CP] Embed Pods Frameworks */,
+				1F9A74A1FE6C627E847BBF11 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -222,11 +230,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "Rudder-Facebook_Tests" */;
 			buildPhases = (
-				E01D95A74131EF3E284C4B33 /* [CP] Check Pods Manifest.lock */,
+				9E15D85BFC5A02ECB62A67D0 /* [CP] Check Pods Manifest.lock */,
 				6003F5AA195388D20070C39A /* Sources */,
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
-				03CAB0005392475D986100DA /* [CP] Embed Pods Frameworks */,
+				2F64C2C9881E82770F51869A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -248,6 +256,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = arnab;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = GTGKNDBD23;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -296,7 +307,31 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		03CAB0005392475D986100DA /* [CP] Embed Pods Frameworks */ = {
+		1F9A74A1FE6C627E847BBF11 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Rudder-Facebook_Example/Pods-Rudder-Facebook_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit_Basics/FBSDKCoreKit_Basics.framework",
+				"${BUILT_PRODUCTS_DIR}/Rudder/Rudder.framework",
+				"${BUILT_PRODUCTS_DIR}/Rudder-Facebook/Rudder_Facebook.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit_Basics.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rudder.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rudder_Facebook.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Rudder-Facebook_Example/Pods-Rudder-Facebook_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2F64C2C9881E82770F51869A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -314,29 +349,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Rudder-Facebook_Tests/Pods-Rudder-Facebook_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3AF4DC379B4616597016AE6A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Rudder-Facebook_Example/Pods-Rudder-Facebook_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Rudder/Rudder.framework",
-				"${BUILT_PRODUCTS_DIR}/Rudder-Facebook/Rudder_Facebook.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rudder.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rudder_Facebook.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Rudder-Facebook_Example/Pods-Rudder-Facebook_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9FD35980636A6330FB0A3FA7 /* [CP] Check Pods Manifest.lock */ = {
+		7CAAB3DE392F5E765CEF96D8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -358,7 +371,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E01D95A74131EF3E284C4B33 /* [CP] Check Pods Manifest.lock */ = {
+		9E15D85BFC5A02ECB62A67D0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -514,9 +527,10 @@
 		};
 		6003F5C0195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 411D23A12BA2EB78B6ED7859 /* Pods-Rudder-Facebook_Example.debug.xcconfig */;
+			baseConfigurationReference = 8451164D92DE19C037A4F29E /* Pods-Rudder-Facebook_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GTGKNDBD23;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Rudder-Facebook/Rudder-Facebook-Prefix.pch";
 				INFOPLIST_FILE = "Rudder-Facebook/Rudder-Facebook-Info.plist";
@@ -530,9 +544,10 @@
 		};
 		6003F5C1195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5DA05A75A811621DED36DE87 /* Pods-Rudder-Facebook_Example.release.xcconfig */;
+			baseConfigurationReference = 2C22DA1ADA0CC7327BA65563 /* Pods-Rudder-Facebook_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GTGKNDBD23;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Rudder-Facebook/Rudder-Facebook-Prefix.pch";
 				INFOPLIST_FILE = "Rudder-Facebook/Rudder-Facebook-Info.plist";
@@ -546,7 +561,7 @@
 		};
 		6003F5C3195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 27C56A821F732700A64A6377 /* Pods-Rudder-Facebook_Tests.debug.xcconfig */;
+			baseConfigurationReference = A4FEC8ABE8E88384382BB93C /* Pods-Rudder-Facebook_Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -571,7 +586,7 @@
 		};
 		6003F5C4195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EFCFD3D599563857B499A9A1 /* Pods-Rudder-Facebook_Tests.release.xcconfig */;
+			baseConfigurationReference = 09DA8C183844BF380C6A211A /* Pods-Rudder-Facebook_Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
