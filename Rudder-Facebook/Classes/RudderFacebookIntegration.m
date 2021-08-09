@@ -16,7 +16,13 @@ static NSArray* events;
     if (self) {
         self.limitedDataUse = [config[@"limitedDataUse"] boolValue];
         self.dpoState = [config[@"dpoState"] intValue];
+        if(self.dpoState != 0 && self.dpoState != 1000) {
+            self.dpoState = 0;
+        }
         self.dpoCountry = [config[@"dpoCountry"] intValue];
+        if(self.dpoCountry != 0 && self.dpoCountry != 1) {
+            self.dpoCountry = 0;
+        }
         
         events = @[@"identify", @"track", @"screen"];
         
