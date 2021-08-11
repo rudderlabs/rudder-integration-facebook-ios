@@ -17,8 +17,8 @@
 {
     // Override point for customization after application launch.
     
-    NSString *writeKey = @"1wMNDtacXtAXOncZ0trfpLbnHvZ";
-    NSString *dataPlaneUrl = @"https://ac0243a3d0d4.ngrok.io";
+    NSString *writeKey = @"1vqBRSLN79i8T7Mcl6zzRsWqdO8";
+    NSString *dataPlaneUrl = @"https://285b83208a68.ngrok.io";
 
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
@@ -27,7 +27,7 @@
     RSConfigBuilder *configBuilder = [[RSConfigBuilder alloc] init];
     [configBuilder withDataPlaneUrl:dataPlaneUrl];
     [configBuilder withLoglevel:RSLogLevelVerbose];
-    [configBuilder withControlPlaneUrl:@"https://api.dev.rudderlabs.com"];
+    [configBuilder withControlPlaneUrl:@"https://chilly-seahorse-73.loca.lt"];
     [configBuilder withFactory:[RudderFacebookFactory instance]];
     RSClient *rudderClient = [RSClient getInstance:writeKey config:[configBuilder build]];
     

@@ -7,7 +7,7 @@
 
 #import "RudderFacebookIntegration.h"
 
-static NSArray* events;
+NSArray* events;
 
 @implementation RudderFacebookIntegration
 
@@ -16,7 +16,13 @@ static NSArray* events;
     if (self) {
         self.limitedDataUse = [config[@"limitedDataUse"] boolValue];
         self.dpoState = [config[@"dpoState"] intValue];
+        if(self.dpoState != 0 && self.dpoState != 1000) {
+            self.dpoState = 0;
+        }
         self.dpoCountry = [config[@"dpoCountry"] intValue];
+        if(self.dpoCountry != 0 && self.dpoCountry != 1) {
+            self.dpoCountry = 0;
+        }
         
         events = @[@"identify", @"track", @"screen"];
         
@@ -32,12 +38,11 @@ static NSArray* events;
 }
 
 - (void) processRuderEvent: (nonnull RSMessage *) message {
-    int label = [events indexOfObject:message.type];
+    int label = (int) [events indexOfObject:message.type];
     switch(label)
     {
         case 0:
         {
-            NSLog(@"Desu Identify reached");
             [FBSDKAppEvents setUserID:message.userId];
             NSDictionary *address = (NSDictionary*) message.context.traits[@"address"];
             [FBSDKAppEvents setUserData:[[NSString alloc] initWithFormat:@"%@", message.context.traits[@"email"]] forType:FBSDKAppEventEmail];
@@ -54,7 +59,6 @@ static NSArray* events;
         }
         case 1:
         {
-            NSLog(@"Desu Track reached");
             // FB Event Names must be <= 40 characters
             NSString *truncatedEvent = [message.event substringToIndex: MIN(40, [message.event length])];
             
@@ -81,7 +85,6 @@ static NSArray* events;
         }
         case 2:
         {
-            NSLog(@"Desu screen reached");
             // FB Event Names must be <= 40 characters
             // 'Viewed' and 'Screen' with spaces take up 14
             NSString *truncatedEvent = [message.event substringToIndex: MIN(26, [message.event length])];
@@ -90,7 +93,6 @@ static NSArray* events;
             break;
         }
         default:
-            NSLog(@"Desu Unsupported call reached");
             [RSLogger logWarn:@"MessageType is not supported"];
             break;
     }
