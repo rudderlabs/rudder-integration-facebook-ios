@@ -7,7 +7,7 @@
 
 #import "RudderFacebookIntegration.h"
 
-static NSArray* events;
+NSArray* events;
 
 @implementation RudderFacebookIntegration
 
@@ -38,7 +38,7 @@ static NSArray* events;
 }
 
 - (void) processRuderEvent: (nonnull RSMessage *) message {
-    int label = [events indexOfObject:message.type];
+    int label = (int) [events indexOfObject:message.type];
     switch(label)
     {
         case 0:
