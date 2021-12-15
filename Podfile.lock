@@ -1,0 +1,39 @@
+PODS:
+  - FBAEMKit (12.0.2):
+    - FBSDKCoreKit_Basics (= 12.0.2)
+  - FBSDKCoreKit (12.0.2):
+    - FBAEMKit (= 12.0.2)
+    - FBSDKCoreKit_Basics (= 12.0.2)
+  - FBSDKCoreKit_Basics (12.0.2)
+  - Rudder (2.0.0)
+  - Rudder-Facebook (2.0.0):
+    - FBSDKCoreKit (= 12.0.2)
+    - Rudder (~> 2.0)
+
+DEPENDENCIES:
+  - FBSDKCoreKit (= 12.0.2)
+  - Rudder (from `~/Documents/Rudder/RudderStack-Cocoa/`)
+  - Rudder-Facebook (from `.`)
+
+SPEC REPOS:
+  trunk:
+    - FBAEMKit
+    - FBSDKCoreKit
+    - FBSDKCoreKit_Basics
+
+EXTERNAL SOURCES:
+  Rudder:
+    :path: "~/Documents/Rudder/RudderStack-Cocoa/"
+  Rudder-Facebook:
+    :path: "."
+
+SPEC CHECKSUMS:
+  FBAEMKit: c6b8ddf8371640fcd1a3b844d0f8884c8f334cea
+  FBSDKCoreKit: 506c0fd1c09a3075f62be8fa36bdd921c563daa9
+  FBSDKCoreKit_Basics: c0701d1634c944d60dd3c6361d66dbd0e707a456
+  Rudder: 4a12daa354fb31cf560c3fd6c640fc1910402d35
+  Rudder-Facebook: 490c606147525957e20fddd02d91f28e332a72e6
+
+PODFILE CHECKSUM: 42e0c70ca2c48e6c84ad73d19ee8c9d0dbf2f955
+
+COCOAPODS: 1.11.2

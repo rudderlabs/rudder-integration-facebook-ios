@@ -7,9 +7,10 @@
 //
 
 #import "RUDDERAppDelegate.h"
-#import <Rudder/Rudder.h>
-#import <RudderFacebookFactory.h>
-#import "FBSDKCoreKit.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+
+@import Rudder;
+@import RudderFacebook;
 
 @implementation RUDDERAppDelegate
 
@@ -24,12 +25,12 @@
                              didFinishLaunchingWithOptions:launchOptions];
     [FBSDKSettings setAdvertiserTrackingEnabled:YES];
     
-    RSConfigBuilder *configBuilder = [[RSConfigBuilder alloc] init];
+    RSConfig *configBuilder = [[RSConfig alloc] init];
     [configBuilder withDataPlaneUrl:dataPlaneUrl];
     [configBuilder withLoglevel:RSLogLevelVerbose];
     [configBuilder withControlPlaneUrl:@"https://chilly-seahorse-73.loca.lt"];
     [configBuilder withFactory:[RudderFacebookFactory instance]];
-    RSClient *rudderClient = [RSClient getInstance:writeKey config:[configBuilder build]];
+    RSClient *rudderClient = [RSClient getInstance:writeKey config:configBuilder];
     
     [rudderClient track:@"level_up"];
     [rudderClient track:@"daily_rewards_claim" properties:@{

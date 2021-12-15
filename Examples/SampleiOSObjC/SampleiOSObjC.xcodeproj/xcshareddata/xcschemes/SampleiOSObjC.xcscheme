@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0720"
+   LastUpgradeVersion = "1310"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6003F589195388D20070C39A"
-               BuildableName = "Rudder-Facebook_Example.app"
-               BlueprintName = "Rudder-Facebook_Example"
-               ReferencedContainer = "container:Rudder-Facebook.xcodeproj">
+               BuildableName = "SampleiOSObjC.app"
+               BlueprintName = "SampleiOSObjC"
+               ReferencedContainer = "container:SampleiOSObjC.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -31,9 +31,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6003F589195388D20070C39A"
-            BuildableName = "Rudder-Facebook_Example.app"
-            BlueprintName = "Rudder-Facebook_Example"
-            ReferencedContainer = "container:Rudder-Facebook.xcodeproj">
+            BuildableName = "SampleiOSObjC.app"
+            BlueprintName = "SampleiOSObjC"
+            ReferencedContainer = "container:SampleiOSObjC.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <Testables>
@@ -42,9 +42,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6003F5AD195388D20070C39A"
-               BuildableName = "Rudder-Facebook_Tests.xctest"
-               BlueprintName = "Rudder-Facebook_Tests"
-               ReferencedContainer = "container:Rudder-Facebook.xcodeproj">
+               BuildableName = "SampleiOSObjC_Tests.xctest"
+               BlueprintName = "SampleiOSObjC_Tests"
+               ReferencedContainer = "container:SampleiOSObjC.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -64,9 +64,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6003F589195388D20070C39A"
-            BuildableName = "Rudder-Facebook_Example.app"
-            BlueprintName = "Rudder-Facebook_Example"
-            ReferencedContainer = "container:Rudder-Facebook.xcodeproj">
+            BuildableName = "SampleiOSObjC.app"
+            BlueprintName = "SampleiOSObjC"
+            ReferencedContainer = "container:SampleiOSObjC.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -81,9 +81,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6003F589195388D20070C39A"
-            BuildableName = "Rudder-Facebook_Example.app"
-            BlueprintName = "Rudder-Facebook_Example"
-            ReferencedContainer = "container:Rudder-Facebook.xcodeproj">
+            BuildableName = "SampleiOSObjC.app"
+            BlueprintName = "SampleiOSObjC"
+            ReferencedContainer = "container:SampleiOSObjC.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

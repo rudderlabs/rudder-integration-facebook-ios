@@ -1,0 +1,432 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		46D4C83DCE3CCE800DF12F90 /* Pods_RudderFacebook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AD3B72AF2C5401003B9E026 /* Pods_RudderFacebook.framework */; };
+		EDD7FFED2768809E002C356D /* RudderFacebook.h in Headers */ = {isa = PBXBuildFile; fileRef = EDD7FFEC2768809E002C356D /* RudderFacebook.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EDD7FFF027688225002C356D /* RudderFacebookFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD7FFEF27688225002C356D /* RudderFacebookFactory.swift */; };
+		EDD7FFF52768860E002C356D /* RudderFacebookIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD7FFF42768860E002C356D /* RudderFacebookIntegration.swift */; };
+		EDD7FFF82769C43B002C356D /* RSFBUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD7FFF72769C43B002C356D /* RSFBUtility.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2B03AD53524B0DB052C6B2B4 /* Pods-RudderFacebook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RudderFacebook.debug.xcconfig"; path = "Target Support Files/Pods-RudderFacebook/Pods-RudderFacebook.debug.xcconfig"; sourceTree = "<group>"; };
+		3AD3B72AF2C5401003B9E026 /* Pods_RudderFacebook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RudderFacebook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8EE52B74059DC8191A7728E /* Pods-RudderFacebook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RudderFacebook.release.xcconfig"; path = "Target Support Files/Pods-RudderFacebook/Pods-RudderFacebook.release.xcconfig"; sourceTree = "<group>"; };
+		EDD7FFE027687FEF002C356D /* RudderFacebook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RudderFacebook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDD7FFEC2768809E002C356D /* RudderFacebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RudderFacebook.h; sourceTree = "<group>"; };
+		EDD7FFEF27688225002C356D /* RudderFacebookFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RudderFacebookFactory.swift; sourceTree = "<group>"; };
+		EDD7FFF1276884EF002C356D /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		EDD7FFF2276884F0002C356D /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		EDD7FFF3276884F0002C356D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		EDD7FFF42768860E002C356D /* RudderFacebookIntegration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RudderFacebookIntegration.swift; sourceTree = "<group>"; };
+		EDD7FFF62768957A002C356D /* Rudder-Facebook.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Rudder-Facebook.podspec"; sourceTree = "<group>"; };
+		EDD7FFF72769C43B002C356D /* RSFBUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSFBUtility.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EDD7FFDD27687FEF002C356D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46D4C83DCE3CCE800DF12F90 /* Pods_RudderFacebook.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		41221CFE55FF565F051A3C02 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2B03AD53524B0DB052C6B2B4 /* Pods-RudderFacebook.debug.xcconfig */,
+				A8EE52B74059DC8191A7728E /* Pods-RudderFacebook.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		859BD28F24B738FF9E0CC33E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3AD3B72AF2C5401003B9E026 /* Pods_RudderFacebook.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EDD7FFD627687FEF002C356D = {
+			isa = PBXGroup;
+			children = (
+				EDD7FFF1276884EF002C356D /* LICENSE */,
+				EDD7FFF2276884F0002C356D /* Podfile */,
+				EDD7FFF3276884F0002C356D /* README.md */,
+				EDD7FFF62768957A002C356D /* Rudder-Facebook.podspec */,
+				EDD7FFEA2768809E002C356D /* Sources */,
+				EDD7FFE127687FEF002C356D /* Products */,
+				41221CFE55FF565F051A3C02 /* Pods */,
+				859BD28F24B738FF9E0CC33E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		EDD7FFE127687FEF002C356D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EDD7FFE027687FEF002C356D /* RudderFacebook.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EDD7FFEA2768809E002C356D /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				EDD7FFEE276881F4002C356D /* Classes */,
+				EDD7FFEB2768809E002C356D /* SDKInfo */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		EDD7FFEB2768809E002C356D /* SDKInfo */ = {
+			isa = PBXGroup;
+			children = (
+				EDD7FFEC2768809E002C356D /* RudderFacebook.h */,
+			);
+			path = SDKInfo;
+			sourceTree = "<group>";
+		};
+		EDD7FFEE276881F4002C356D /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				EDD7FFEF27688225002C356D /* RudderFacebookFactory.swift */,
+				EDD7FFF42768860E002C356D /* RudderFacebookIntegration.swift */,
+				EDD7FFF72769C43B002C356D /* RSFBUtility.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		EDD7FFDB27687FEF002C356D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDD7FFED2768809E002C356D /* RudderFacebook.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		EDD7FFDF27687FEF002C356D /* RudderFacebook */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDD7FFE727687FEF002C356D /* Build configuration list for PBXNativeTarget "RudderFacebook" */;
+			buildPhases = (
+				8AC028D8716681ECF7BE2A83 /* [CP] Check Pods Manifest.lock */,
+				EDD7FFDB27687FEF002C356D /* Headers */,
+				EDD7FFDC27687FEF002C356D /* Sources */,
+				EDD7FFDD27687FEF002C356D /* Frameworks */,
+				EDD7FFDE27687FEF002C356D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RudderFacebook;
+			productName = RudderFacebook;
+			productReference = EDD7FFE027687FEF002C356D /* RudderFacebook.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EDD7FFD727687FEF002C356D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1310;
+				TargetAttributes = {
+					EDD7FFDF27687FEF002C356D = {
+						CreatedOnToolsVersion = 13.1;
+						LastSwiftMigration = 1310;
+					};
+				};
+			};
+			buildConfigurationList = EDD7FFDA27687FEF002C356D /* Build configuration list for PBXProject "RudderFacebook" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EDD7FFD627687FEF002C356D;
+			productRefGroup = EDD7FFE127687FEF002C356D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EDD7FFDF27687FEF002C356D /* RudderFacebook */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EDD7FFDE27687FEF002C356D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8AC028D8716681ECF7BE2A83 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RudderFacebook-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EDD7FFDC27687FEF002C356D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDD7FFF52768860E002C356D /* RudderFacebookIntegration.swift in Sources */,
+				EDD7FFF82769C43B002C356D /* RSFBUtility.swift in Sources */,
+				EDD7FFF027688225002C356D /* RudderFacebookFactory.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		EDD7FFE527687FEF002C356D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		EDD7FFE627687FEF002C356D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		EDD7FFE827687FEF002C356D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B03AD53524B0DB052C6B2B4 /* Pods-RudderFacebook.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = GTGKNDBD23;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rudderstack.RudderFacebook;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EDD7FFE927687FEF002C356D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8EE52B74059DC8191A7728E /* Pods-RudderFacebook.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = GTGKNDBD23;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rudderstack.RudderFacebook;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EDD7FFDA27687FEF002C356D /* Build configuration list for PBXProject "RudderFacebook" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDD7FFE527687FEF002C356D /* Debug */,
+				EDD7FFE627687FEF002C356D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDD7FFE727687FEF002C356D /* Build configuration list for PBXNativeTarget "RudderFacebook" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDD7FFE827687FEF002C356D /* Debug */,
+				EDD7FFE927687FEF002C356D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EDD7FFD727687FEF002C356D /* Project object */;
+}
