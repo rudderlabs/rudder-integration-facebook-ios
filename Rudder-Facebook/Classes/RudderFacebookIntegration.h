@@ -8,7 +8,6 @@
 #import <Foundation/Foundation.h>
 #import <Rudder/Rudder.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
-#import <FBSDKCoreKit_Basics/FBSDKUserDataStore.h>
 
 
 
