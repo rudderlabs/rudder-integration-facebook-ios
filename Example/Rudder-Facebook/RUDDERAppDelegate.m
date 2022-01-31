@@ -9,7 +9,7 @@
 #import "RUDDERAppDelegate.h"
 #import <Rudder/Rudder.h>
 #import <RudderFacebookFactory.h>
-#import "FBSDKCoreKit.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 @implementation RUDDERAppDelegate
 

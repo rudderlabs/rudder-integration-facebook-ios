@@ -111,6 +111,11 @@ NSArray* events;
     [FBSDKAppEvents clearUserData];
 }
 
+- (void)flush {
+    [RSLogger logDebug:@"Facebook App Events Factory doesn't support Flush Call"];
+}
+
+
 #pragma mark - Utils
 
 - (NSNumber *)extractRevenue:(NSDictionary *)dictionary withKey:(NSString *)revenueKey
