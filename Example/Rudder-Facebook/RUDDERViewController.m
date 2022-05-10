@@ -21,26 +21,20 @@
 	// Do any additional setup after loading the view, typically from a nib.
 }
 - (IBAction)track:(id)sender {
-    
-    [[RSClient sharedInstance] identify:@"test_user_id"
+    [[RSClient sharedInstance] identify:@"iOSUserId"
                                  traits:@{@"foo": @"bar",
-                                          @"foo1": @"bar1",
+                                          @"age": @"17",
                                           @"email": @"test@gmail.com",
                                           @"key_1" : @"value_1",
                                           @"key_2" : @"value_2"
-                                 }
-     ];
-    
-    
+                                 }];
     [[RSClient sharedInstance] track:@"level_up"];
     [[RSClient sharedInstance] track:@"daily_rewards_claim" properties:@{
         @"revenue":@"346",
         @"name":@"tyres"
     }];
     [[RSClient sharedInstance] track:@"revenue"];
-    
     [[RSClient sharedInstance] screen:@"Main Screen"];
-    
 }
 
 - (void)didReceiveMemoryWarning

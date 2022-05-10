@@ -14,9 +14,6 @@ NSArray* events;
 - (instancetype)initWithConfig:(NSDictionary *)config withAnalytics:(RSClient *)client {
     self = [super init];
     if (self) {
-//        [FBSDKAppEvents activateApp];
-        [[FBSDKAppEvents alloc] activateApp];
-        
         self.limitedDataUse = [config[@"limitedDataUse"] boolValue];
         self.dpoState = [config[@"dpoState"] intValue];
         if(self.dpoState != 0 && self.dpoState != 1000) {
@@ -42,13 +39,6 @@ NSArray* events;
 
 - (void) processRuderEvent: (nonnull RSMessage *) message {
     int label = (int) [events indexOfObject:message.type];
-//    AppEvents.shared.logEvent(AppEvents.Name("battledAnOrc"))
-    
-
-//        [FBSDKAppEvents logEvent: FBSDKAppEventNameSearched
-//            parameters: params];
-    
-    
     switch(label)
     {
         case 0:

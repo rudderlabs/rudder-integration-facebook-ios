@@ -64,5 +64,7 @@
 	<true/>
 	<key>FacebookAdvertiserIDCollectionEnabled</key>
 	<true/>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>Click on allow</string>
 </dict>
 </plist>

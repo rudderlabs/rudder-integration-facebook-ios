@@ -10,6 +10,7 @@
 #import <Rudder/Rudder.h>
 #import <RudderFacebookFactory.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
+@import AppTrackingTransparency;
 
 @implementation RUDDERAppDelegate
 
@@ -22,23 +23,24 @@
 
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
+    
+    // Make sure to set the delay of at least 1 second else pop-up will not appear.
+    NSTimeInterval delayInSeconds = 1.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [self requestTracking];
+    });
+    
 //    [FBSDKSettings setAdvertiserTrackingEnabled:YES];
     
     RSConfigBuilder *configBuilder = [[RSConfigBuilder alloc] init];
     [configBuilder withDataPlaneUrl:dataPlaneUrl];
     [configBuilder withLoglevel:RSLogLevelNone];
+    [configBuilder withTrackLifecycleEvens:false];
 //    [configBuilder withControlPlaneUrl:@"https://chilly-seahorse-73.loca.lt"];
     [configBuilder withFactory:[RudderFacebookFactory instance]];
     RSClient *rudderClient = [RSClient getInstance:writeKey config:[configBuilder build]];
     
-//    [[RSClient sharedInstance] identify:@"test_user_id"
-//                                 traits:@{@"foo": @"bar",
-//                                          @"foo1": @"bar1",
-//                                          @"email": @"test@gmail.com",
-//                                          @"key_1" : @"value_1",
-//                                          @"key_2" : @"value_2"
-//                                 }
-//     ];
 //
 //
 //    [rudderClient track:@"level_up"];
@@ -49,14 +51,32 @@
 //    [rudderClient track:@"revenue"];
 //
 //    [rudderClient screen:@"Main Screen"];
-    
-//    [[RSClient sharedInstance] group:@"sample_group_id"
-//                                  traits:@{@"foo": @"bar",
-//                                           @"foo1": @"bar1",
-//                                           @"email": @"ruchira@gmail.com"}
-//    ];
-    
     return YES;
+}
+
+-(void) requestTracking {
+    if (@available(iOS 14, *)) {
+        [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+            switch (status){
+                case ATTrackingManagerAuthorizationStatusNotDetermined:
+                    break;
+                case ATTrackingManagerAuthorizationStatusRestricted:
+                    break;
+                case ATTrackingManagerAuthorizationStatusAuthorized:
+                    [FBSDKSettings.sharedSettings setAutoLogAppEventsEnabled:true];
+                    [FBSDKSettings.sharedSettings setAdvertiserTrackingEnabled:true];
+                    [FBSDKSettings.sharedSettings setAdvertiserIDCollectionEnabled:true];
+                    break;
+            case ATTrackingManagerAuthorizationStatusDenied:
+                    [FBSDKSettings.sharedSettings setAutoLogAppEventsEnabled:false];
+                    [FBSDKSettings.sharedSettings setAdvertiserTrackingEnabled:false];
+                    [FBSDKSettings.sharedSettings setAdvertiserIDCollectionEnabled:false];
+                    break;
+            default:
+                    break;
+            }
+        }];
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
