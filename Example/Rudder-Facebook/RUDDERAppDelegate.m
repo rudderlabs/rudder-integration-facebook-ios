@@ -21,6 +21,9 @@
     NSString *writeKey = @"28vO4QX2DtucdUMj5KWMuNqsOfB";
     NSString *dataPlaneUrl = @"https://rudderstacbumvdrexzj.dataplane.rudderstack.com";
 
+    /**
+     * This code initializes the SDK when your app launches, and allows the SDK handle logins and sharing from the native Facebook app when you perform a Login or Share action. Otherwise, the user must be logged into Facebook to use the in-app browser to login. Refer Facebook App Event doc for more info: https://developers.facebook.com/docs/app-events/getting-started-app-events-ios
+     */
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
     
@@ -30,7 +33,6 @@
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         [self requestTracking];
     });
-    
 //    [FBSDKSettings setAdvertiserTrackingEnabled:YES];
     
     RSConfigBuilder *configBuilder = [[RSConfigBuilder alloc] init];
@@ -39,18 +41,7 @@
     [configBuilder withTrackLifecycleEvens:false];
 //    [configBuilder withControlPlaneUrl:@"https://chilly-seahorse-73.loca.lt"];
     [configBuilder withFactory:[RudderFacebookFactory instance]];
-    RSClient *rudderClient = [RSClient getInstance:writeKey config:[configBuilder build]];
-    
-//
-//
-//    [rudderClient track:@"level_up"];
-//    [rudderClient track:@"daily_rewards_claim" properties:@{
-//        @"revenue":@"346",
-//        @"name":@"tyres"
-//    }];
-//    [rudderClient track:@"revenue"];
-//
-//    [rudderClient screen:@"Main Screen"];
+    [RSClient getInstance:writeKey config:[configBuilder build]];
     return YES;
 }
 

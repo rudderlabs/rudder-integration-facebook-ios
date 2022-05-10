@@ -50,21 +50,17 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb707401323805026</string>
+				<string>fbAPPID</string>
 			</array>
 		</dict>
 	</array>
 	<key>FacebookAppID</key>
-	<string>707401323805026</string>
+	<string>APPID</string>
 	<key>FacebookClientToken</key>
-	<string>d77100302a173e47c74e1b87ebe5022a</string>
+	<string>CLIENTOKEN</string>
 	<key>FacebookDisplayName</key>
-	<string>9 May 22</string>
-	<key>FacebookAutoLogAppEventsEnabled</key>
-	<true/>
-	<key>FacebookAdvertiserIDCollectionEnabled</key>
-	<true/>
+	<string>DISPLAYNAME</string>
 	<key>NSUserTrackingUsageDescription</key>
-	<string>Click on allow</string>
+	<string>Select allow to send event to Facebook App Events</string>
 </dict>
 </plist>
