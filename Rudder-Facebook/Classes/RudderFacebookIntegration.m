@@ -81,9 +81,6 @@ NSArray* events;
                 [FBSDKAppEvents.shared logEvent:truncatedEvent
                               parameters:message.properties];
             }
-            [FBSDKAppEvents.shared logEvent: FBSDKAppEventNameAddedToCart
-                    valueToSum: 100.0
-                    parameters: message.properties];
             break;
         }
         case 2:
