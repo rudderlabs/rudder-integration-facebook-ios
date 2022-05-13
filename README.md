@@ -25,6 +25,46 @@ RSConfigBuilder *builder = [[RSConfigBuilder alloc] init];
 [RSClient getInstance:WRITE_KEY config:[builder build]];
 ```
 
+3. To enable the sending of events to Facebook App Events on iOS 14+ app MUST request user for tracking:
+
+Put the following snippet in your ```AppDelegate.m``` file under the method ```didFinishLaunchingWithOptions```:
+```
+NSTimeInterval delayInSeconds = 1.0;
+dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+    [self requestTracking];
+    });
+```
+
+Then put the below snippet in your ```AppDelegate.m``` file
+```
+-(void) requestTracking {
+    if (@available(iOS 14, *)) {
+        [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+            switch (status){
+                case ATTrackingManagerAuthorizationStatusNotDetermined:
+                    break;
+                case ATTrackingManagerAuthorizationStatusRestricted:
+                    break;
+                case ATTrackingManagerAuthorizationStatusAuthorized:
+                    [FBSDKSettings.sharedSettings setAutoLogAppEventsEnabled:true];
+                    [FBSDKSettings.sharedSettings setAdvertiserTrackingEnabled:true];
+                    [FBSDKSettings.sharedSettings setAdvertiserIDCollectionEnabled:true];
+                    break;
+            case ATTrackingManagerAuthorizationStatusDenied:
+                    [FBSDKSettings.sharedSettings setAutoLogAppEventsEnabled:false];
+                    [FBSDKSettings.sharedSettings setAdvertiserTrackingEnabled:false];
+                    [FBSDKSettings.sharedSettings setAdvertiserIDCollectionEnabled:false];
+                    break;
+            default:
+                    break;
+            }
+        }];
+    }
+}
+```
+
+
 ## Send Events
 Follow the steps from the [RudderStack iOS SDK](https://github.com/rudderlabs/rudder-sdk-ios).
 

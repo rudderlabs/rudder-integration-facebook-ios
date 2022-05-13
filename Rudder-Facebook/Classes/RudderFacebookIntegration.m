@@ -27,10 +27,10 @@ NSArray* events;
         events = @[@"identify", @"track", @"screen"];
         
         if (self.limitedDataUse) {
-            [FBSDKSettings setDataProcessingOptions:@[@"LDU"] country:self.dpoCountry state:self.dpoState];
+            [FBSDKSettings.sharedSettings setDataProcessingOptions:@[@"LDU"] country:self.dpoCountry state:self.dpoState];
             [RSLogger logDebug:[NSString stringWithFormat:@"[FBSDKSettings setDataProcessingOptions:[%@] country:%d state:%d]",@"LDU", self.dpoCountry, self.dpoState]];
         } else {
-            [FBSDKSettings setDataProcessingOptions:@[]];
+            [FBSDKSettings.sharedSettings setDataProcessingOptions:@[]];
             [RSLogger logDebug:@"[FBSDKSettings setDataProcessingOptions:[]"];
         }
     }
@@ -43,18 +43,18 @@ NSArray* events;
     {
         case 0:
         {
-            [FBSDKAppEvents setUserID:message.userId];
+            [FBSDKAppEvents.shared setUserID:message.userId];
             NSDictionary *address = (NSDictionary*) message.context.traits[@"address"];
-            [FBSDKAppEvents setUserData:[[NSString alloc] initWithFormat:@"%@", message.context.traits[@"email"]] forType:FBSDKAppEventEmail];
-            [FBSDKAppEvents setUserData:[[NSString alloc] initWithFormat:@"%@", message.context.traits[@"firstName"]] forType:FBSDKAppEventFirstName];
-            [FBSDKAppEvents setUserData:[[NSString alloc] initWithFormat:@"%@", message.context.traits[@"lastName"]] forType:FBSDKAppEventLastName];
-            [FBSDKAppEvents setUserData:[[NSString alloc] initWithFormat:@"%@", message.context.traits[@"phone"]] forType:FBSDKAppEventPhone];
-            [FBSDKAppEvents setUserData:[[NSString alloc] initWithFormat:@"%@", message.context.traits[@"birthday"]] forType:FBSDKAppEventDateOfBirth];
-            [FBSDKAppEvents setUserData:[[NSString alloc] initWithFormat:@"%@", message.context.traits[@"gender"]] forType:FBSDKAppEventGender];
-            [FBSDKAppEvents setUserData:[[NSString alloc] initWithFormat:@"%@", address[@"city"]] forType:FBSDKAppEventCity];
-            [FBSDKAppEvents setUserData:[[NSString alloc] initWithFormat:@"%@", address[@"state"]] forType:FBSDKAppEventState];
-            [FBSDKAppEvents setUserData:[[NSString alloc] initWithFormat:@"%@", address[@"postalcode"]] forType:FBSDKAppEventZip];
-            [FBSDKAppEvents setUserData:[[NSString alloc] initWithFormat:@"%@", address[@"country"]] forType:FBSDKAppEventCountry];
+            [FBSDKAppEvents.shared setUserData:[[NSString alloc] initWithFormat:@"%@", message.context.traits[@"email"]] forType:FBSDKAppEventEmail];
+            [FBSDKAppEvents.shared setUserData:[[NSString alloc] initWithFormat:@"%@", message.context.traits[@"firstName"]] forType:FBSDKAppEventFirstName];
+            [FBSDKAppEvents.shared setUserData:[[NSString alloc] initWithFormat:@"%@", message.context.traits[@"lastName"]] forType:FBSDKAppEventLastName];
+            [FBSDKAppEvents.shared setUserData:[[NSString alloc] initWithFormat:@"%@", message.context.traits[@"phone"]] forType:FBSDKAppEventPhone];
+            [FBSDKAppEvents.shared setUserData:[[NSString alloc] initWithFormat:@"%@", message.context.traits[@"birthday"]] forType:FBSDKAppEventDateOfBirth];
+            [FBSDKAppEvents.shared setUserData:[[NSString alloc] initWithFormat:@"%@", message.context.traits[@"gender"]] forType:FBSDKAppEventGender];
+            [FBSDKAppEvents.shared setUserData:[[NSString alloc] initWithFormat:@"%@", address[@"city"]] forType:FBSDKAppEventCity];
+            [FBSDKAppEvents.shared setUserData:[[NSString alloc] initWithFormat:@"%@", address[@"state"]] forType:FBSDKAppEventState];
+            [FBSDKAppEvents.shared setUserData:[[NSString alloc] initWithFormat:@"%@", address[@"postalcode"]] forType:FBSDKAppEventZip];
+            [FBSDKAppEvents.shared setUserData:[[NSString alloc] initWithFormat:@"%@", address[@"country"]] forType:FBSDKAppEventCountry];
             break;
         }
         case 1:
@@ -67,18 +67,18 @@ NSArray* events;
             NSString *currency = [self extractCurrency:message.properties withKey:@"currency"];
             
             if (revenue) {
-                [FBSDKAppEvents logPurchase:[revenue doubleValue] currency:currency];
+                [FBSDKAppEvents.shared logPurchase:[revenue doubleValue] currency:currency];
                 
                 // Custom event
                 NSMutableDictionary *properties = [message.properties mutableCopy];
                 [properties setObject:currency forKey:FBSDKAppEventParameterNameCurrency];
-                [FBSDKAppEvents logEvent:truncatedEvent
+                [FBSDKAppEvents.shared logEvent:truncatedEvent
                               valueToSum:[revenue doubleValue]
                               parameters:properties];
                 
             }
             else {
-                [FBSDKAppEvents logEvent:truncatedEvent
+                [FBSDKAppEvents.shared logEvent:truncatedEvent
                               parameters:message.properties];
             }
             break;
@@ -89,7 +89,7 @@ NSArray* events;
             // 'Viewed' and 'Screen' with spaces take up 14
             NSString *truncatedEvent = [message.event substringToIndex: MIN(26, [message.event length])];
             NSString *event = [[NSString alloc] initWithFormat:@"Viewed %@ Screen", truncatedEvent];
-            [FBSDKAppEvents logEvent:event parameters:message.properties];
+            [FBSDKAppEvents.shared logEvent:event parameters:message.properties];
             break;
         }
         default:
@@ -107,8 +107,8 @@ NSArray* events;
 }
 
 - (void)reset {
-    [FBSDKAppEvents clearUserID];
-    [FBSDKAppEvents clearUserData];
+    FBSDKAppEvents.shared.userID = nil;
+    [FBSDKAppEvents.shared clearUserData];
 }
 
 - (void)flush {
