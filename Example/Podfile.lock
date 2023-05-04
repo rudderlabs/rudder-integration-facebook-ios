@@ -37,7 +37,7 @@ SPEC CHECKSUMS:
   FBSDKCoreKit_Basics: d37280da2e65872f0e931d15f45d97ea324fec37
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   Rudder: 41523d90e7f8040605ca6a803f662a538144c90f
-  Rudder-Facebook: eed0eb8f09400a3ef0b74d2817d183b725b9a2a8
+  Rudder-Facebook: 0f1d705d7d35a2ea9fe50a279972c2c41bb9bd52
 
 PODFILE CHECKSUM: 7bc5675f1c4b3d6df991eedd0fb3fdaaac414a26
 

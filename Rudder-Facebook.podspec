@@ -4,7 +4,7 @@ package = JSON.parse(File.read(File.join(__dir__, 'package.json')))
 
 facebook_sdk_version = '~> 16.0.1'
 rudder_sdk_version = '~> 1.12'
-deployment_target = '11.0'
+deployment_target = '12.0'
 facebook_app_events = 'FBSDKCoreKit'
 
 Pod::Spec.new do |s|
