@@ -134,7 +134,7 @@ NSArray *TRACK_RESERVED_KEYWORDS;
 #pragma mark - Utils
 
 - (NSString *)getFacebookEvent:(NSString *)event {
-    if ([event isEqualToString:ECommProductsSearched]) {//} @"Products Searched"]) {
+    if ([event isEqualToString:ECommProductsSearched]) {
         return FBSDKAppEventNameSearched;
     }
     if ([event isEqualToString:ECommProductViewed]) {
