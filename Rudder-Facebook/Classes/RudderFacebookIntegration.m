@@ -44,9 +44,9 @@ NSArray *TRACK_RESERVED_KEYWORDS;
 - (void) processRuderEvent: (nonnull RSMessage *) message {
     int label = (int) [events indexOfObject:message.type];
     switch(label)
-    {
-        case 0:
         {
+            case 0:
+            {
             [FBSDKAppEvents.shared setUserID:message.userId];
             NSDictionary *address = (NSDictionary*) message.context.traits[@"address"];
             [FBSDKAppEvents.shared setUserData:[[NSString alloc] initWithFormat:@"%@", message.context.traits[@"email"]] forType:FBSDKAppEventEmail];
@@ -60,17 +60,17 @@ NSArray *TRACK_RESERVED_KEYWORDS;
             [FBSDKAppEvents.shared setUserData:[[NSString alloc] initWithFormat:@"%@", address[@"postalcode"]] forType:FBSDKAppEventZip];
             [FBSDKAppEvents.shared setUserData:[[NSString alloc] initWithFormat:@"%@", address[@"country"]] forType:FBSDKAppEventCountry];
             break;
-        }
-        case 1:
-        {
-            // FB Event Names must be <= 40 characters
+            }
+            case 1:
+            {
+                // FB Event Names must be <= 40 characters
             NSString *truncatedEvent = [message.event substringToIndex: MIN(40, [message.event length])];
             NSString *eventName = [self getFacebookEvent: truncatedEvent];
  
             NSMutableDictionary<NSString *, id> *params = [[NSMutableDictionary alloc] init];
             [self handleCustomPropeties:message.properties params:params isScreenEvent:false];
-        
-            // Standard events, refer Facebook docs: https://developers.facebook.com/docs/app-events/reference#standard-events-2 for more info
+            
+                // Standard events, refer Facebook docs: https://developers.facebook.com/docs/app-events/reference#standard-events-2 for more info
             if ([eventName isEqualToString:FBSDKAppEventNameAddedToCart] || [eventName isEqualToString:FBSDKAppEventNameAddedToWishlist] || [eventName isEqualToString:FBSDKAppEventNameViewedContent]) {
                 [self handleStandardProperties:message.properties params:params eventName:eventName];
                 NSNumber *price = [self getValueToSumFromProperties:message.properties propertyKey:@"price"];
@@ -83,14 +83,11 @@ NSArray *TRACK_RESERVED_KEYWORDS;
                 if (value) {
                     [FBSDKAppEvents.shared logEvent:eventName valueToSum:[value doubleValue] parameters:params];
                 }
-            } else if ([eventName isEqualToString:FBSDKAppEventNamePurchased]) {
+            } else if ([eventName isEqualToString:@"Order Completed"]) {
                 [self handleStandardProperties:message.properties params:params eventName:eventName];
                 NSNumber *revenue = [self getValueToSumFromProperties:message.properties propertyKey:@"revenue"];
-                NSString *currency = [NSString stringWithFormat:@"%@", message.properties[@"currency"]];
-                if (currency == nil) {
-                    currency = @"USD";
-                }
-                if (revenue && currency) {
+                NSString *currency = [self extractCurrency:message.properties withKey:@"currency"];
+                if (revenue) {
                     [FBSDKAppEvents.shared logPurchase:[revenue doubleValue] currency:currency parameters:params];
                 }
             } else if ([eventName isEqualToString:FBSDKAppEventNameSearched] || [eventName isEqualToString:FBSDKAppEventNameAddedPaymentInfo] || [eventName isEqualToString:FBSDKAppEventNameCompletedRegistration] || [eventName isEqualToString:FBSDKAppEventNameAchievedLevel] || [eventName isEqualToString:FBSDKAppEventNameCompletedTutorial] || [eventName isEqualToString:FBSDKAppEventNameUnlockedAchievement] || [eventName isEqualToString:FBSDKAppEventNameSubscribe] || [eventName isEqualToString:FBSDKAppEventNameStartTrial] || [eventName isEqualToString:FBSDKAppEventNameAdClick] || [eventName isEqualToString:FBSDKAppEventNameAdImpression] || [eventName isEqualToString:FBSDKAppEventNameRated]) {
@@ -100,22 +97,22 @@ NSArray *TRACK_RESERVED_KEYWORDS;
                 [FBSDKAppEvents.shared logEvent:eventName parameters:params];
             }
             break;
-        }
-        case 2:
-        {
-            // FB Event Names must be <= 40 characters
-            // 'Viewed' and 'Screen' with spaces take up 14
+            }
+            case 2:
+            {
+                // FB Event Names must be <= 40 characters
+                // 'Viewed' and 'Screen' with spaces take up 14
             NSString *truncatedEvent = [message.event substringToIndex: MIN(26, [message.event length])];
             NSString *event = [[NSString alloc] initWithFormat:@"Viewed %@ Screen", truncatedEvent];
             NSMutableDictionary<NSString *, id> *params = [[NSMutableDictionary alloc] init];
             [self handleCustomPropeties:message.properties params:params isScreenEvent:true];
             [FBSDKAppEvents.shared logEvent:event parameters:params];
             break;
-        }
-        default:
+            }
+            default:
             [RSLogger logWarn:@"MessageType is not supported"];
             break;
-    }
+        }
 }
 
 - (void)dump:(nonnull RSMessage *)message {
@@ -154,9 +151,6 @@ NSArray *TRACK_RESERVED_KEYWORDS;
     }
     if ([event isEqualToString:@"Checkout Started"]) {
         return FBSDKAppEventNameInitiatedCheckout;
-    }
-    if ([event isEqualToString:@"Order Completed"]) {
-        return FBSDKAppEventNamePurchased;
     }
     if ([event isEqualToString:@"Complete Registration"]) {
         return FBSDKAppEventNameCompletedRegistration;
@@ -226,14 +220,9 @@ NSArray *TRACK_RESERVED_KEYWORDS;
         params[FBSDKAppEventParameterNameOrderID] = orderId;
     }
     
-        // For `Purchase` event we're directly handling the `currency` properties
-    if (![eventName isEqualToString:FBSDKAppEventNamePurchased]) {
-        NSString *currency = [NSString stringWithFormat:@"%@", properties[@"currency"]];
-        if (currency) {
-            params[FBSDKAppEventParameterNameCurrency] = currency;
-        } else {
-            currency = @"USD";
-        }
+    // For `Purchase` event we're directly handling the `currency` properties
+    if (![eventName isEqualToString:@"Order Completed"]) {
+        params[FBSDKAppEventParameterNameCurrency] = [self extractCurrency:properties withKey:@"currency"];
     }
     
     NSString *description = [NSString stringWithFormat:@"%@", properties[@"description"]];
@@ -259,6 +248,18 @@ NSArray *TRACK_RESERVED_KEYWORDS;
         }
     }
     return nil;
+}
+
+- (NSString *)extractCurrency:(NSDictionary *)dictionary withKey:(NSString *)currencyKey
+{
+    id currencyProperty = nil;
+    for (NSString *key in dictionary.allKeys) {
+        if ([key caseInsensitiveCompare:currencyKey] == NSOrderedSame) {
+            currencyProperty = dictionary[key];
+            return currencyProperty;
+        }
+    }
+    return @"USD";
 }
 
 #pragma mark - Callbacks for app state changes
