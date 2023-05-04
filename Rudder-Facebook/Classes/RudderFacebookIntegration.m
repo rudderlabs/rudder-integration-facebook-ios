@@ -28,7 +28,7 @@ NSArray *TRACK_RESERVED_KEYWORDS;
         }
         
         events = @[@"identify", @"track", @"screen"];
-        TRACK_RESERVED_KEYWORDS = [[NSArray alloc] initWithObjects:@"product_id", @"rating", @"name", @"order_id", @"currency", @"description", @"query", @"value", @"price", @"revenue", nil];
+        TRACK_RESERVED_KEYWORDS = [[NSArray alloc] initWithObjects:KeyProductId, KeyRating, @"name", KeyOrderId, KeyCurrency, @"description", KeyQuery, @"value", KeyPrice, KeyRevenue, nil];
         
         if (self.limitedDataUse) {
             [FBSDKSettings.sharedSettings setDataProcessingOptions:@[@"LDU"] country:self.dpoCountry state:self.dpoState];
@@ -73,7 +73,7 @@ NSArray *TRACK_RESERVED_KEYWORDS;
                 // Standard events, refer Facebook docs: https://developers.facebook.com/docs/app-events/reference#standard-events-2 for more info
             if ([eventName isEqualToString:FBSDKAppEventNameAddedToCart] || [eventName isEqualToString:FBSDKAppEventNameAddedToWishlist] || [eventName isEqualToString:FBSDKAppEventNameViewedContent]) {
                 [self handleStandardProperties:message.properties params:params eventName:eventName];
-                NSNumber *price = [self getValueToSumFromProperties:message.properties propertyKey:@"price"];
+                NSNumber *price = [self getValueToSumFromProperties:message.properties propertyKey:KeyPrice];
                 if (price) {
                     [FBSDKAppEvents.shared logEvent:eventName valueToSum:[price doubleValue] parameters:params];
                 }
@@ -83,10 +83,10 @@ NSArray *TRACK_RESERVED_KEYWORDS;
                 if (value) {
                     [FBSDKAppEvents.shared logEvent:eventName valueToSum:[value doubleValue] parameters:params];
                 }
-            } else if ([eventName isEqualToString:@"Order Completed"]) {
+            } else if ([eventName isEqualToString:ECommOrderCompleted]) {
                 [self handleStandardProperties:message.properties params:params eventName:eventName];
-                NSNumber *revenue = [self getValueToSumFromProperties:message.properties propertyKey:@"revenue"];
-                NSString *currency = [self extractCurrency:message.properties withKey:@"currency"];
+                NSNumber *revenue = [self getValueToSumFromProperties:message.properties propertyKey:KeyRevenue];
+                NSString *currency = [self extractCurrency:message.properties withKey:KeyCurrency];
                 if (revenue) {
                     [FBSDKAppEvents.shared logPurchase:[revenue doubleValue] currency:currency parameters:params];
                 }
@@ -134,22 +134,22 @@ NSArray *TRACK_RESERVED_KEYWORDS;
 #pragma mark - Utils
 
 - (NSString *)getFacebookEvent:(NSString *)event {
-    if ([event isEqualToString:@"Products Searched"]) {
+    if ([event isEqualToString:ECommProductsSearched]) {//} @"Products Searched"]) {
         return FBSDKAppEventNameSearched;
     }
-    if ([event isEqualToString:@"Product Viewed"]) {
+    if ([event isEqualToString:ECommProductViewed]) {
         return FBSDKAppEventNameViewedContent;
     }
-    if ([event isEqualToString:@"Product Added"]) {
+    if ([event isEqualToString:ECommProductAdded]) {
         return FBSDKAppEventNameAddedToCart;
     }
-    if ([event isEqualToString:@"Product Added to Wishlist"]) {
+    if ([event isEqualToString:ECommProductAddedToWishList]) {
         return FBSDKAppEventNameAddedToWishlist;
     }
-    if ([event isEqualToString:@"Payment Info Entered"]) {
+    if ([event isEqualToString:ECommPaymentInfoEntered]) {
         return FBSDKAppEventNameAddedPaymentInfo;
     }
-    if ([event isEqualToString:@"Checkout Started"]) {
+    if ([event isEqualToString:ECommCheckoutStarted]) {
         return FBSDKAppEventNameInitiatedCheckout;
     }
     if ([event isEqualToString:@"Complete Registration"]) {
@@ -170,16 +170,16 @@ NSArray *TRACK_RESERVED_KEYWORDS;
     if ([event isEqualToString:@"Start Trial"]) {
         return FBSDKAppEventNameStartTrial;
     }
-    if ([event isEqualToString:@"Promotion Clicked"]) {
+    if ([event isEqualToString:ECommPromotionClicked]) {
         return FBSDKAppEventNameAdClick;
     }
-    if ([event isEqualToString:@"Promotion Viewed"]) {
+    if ([event isEqualToString:ECommPromotionViewed]) {
         return FBSDKAppEventNameAdImpression;
     }
     if ([event isEqualToString:@"Spend Credits"]) {
         return FBSDKAppEventNameSpentCredits;
     }
-    if ([event isEqualToString:@"Product Reviewed"]) {
+    if ([event isEqualToString:ECommProductReviewed]) {
         return FBSDKAppEventNameRated;
     }
     return event;
@@ -200,12 +200,12 @@ NSArray *TRACK_RESERVED_KEYWORDS;
 }
 
 - (void) handleStandardProperties:(NSDictionary *)properties params: (NSMutableDictionary<NSString *, id> *)params eventName: (NSString *)eventName {
-    NSString *productId = [NSString stringWithFormat:@"%@", properties[@"product_id"]];
+    NSString *productId = [NSString stringWithFormat:@"%@", properties[KeyProductId]];
     if (productId) {
         params[FBSDKAppEventParameterNameContentID] = productId;
     }
     
-    NSNumber *rating = properties[@"rating"];
+    NSNumber *rating = properties[KeyRating];
     if (rating) {
         params[FBSDKAppEventParameterNameMaxRatingValue] = rating;
     }
@@ -215,14 +215,14 @@ NSArray *TRACK_RESERVED_KEYWORDS;
         params[FBSDKAppEventParameterNameAdType] = name;
     }
     
-    NSString *orderId = [NSString stringWithFormat:@"%@", properties[@"order_id"]];
+    NSString *orderId = [NSString stringWithFormat:@"%@", properties[KeyOrderId]];
     if (orderId) {
         params[FBSDKAppEventParameterNameOrderID] = orderId;
     }
     
     // For `Purchase` event we're directly handling the `currency` properties
-    if (![eventName isEqualToString:@"Order Completed"]) {
-        params[FBSDKAppEventParameterNameCurrency] = [self extractCurrency:properties withKey:@"currency"];
+    if (![eventName isEqualToString:ECommOrderCompleted]) {
+        params[FBSDKAppEventParameterNameCurrency] = [self extractCurrency:properties withKey:KeyCurrency];
     }
     
     NSString *description = [NSString stringWithFormat:@"%@", properties[@"description"]];
@@ -230,7 +230,7 @@ NSArray *TRACK_RESERVED_KEYWORDS;
         params[FBSDKAppEventParameterNameDescription] = description;
     }
     
-    NSString *query = [NSString stringWithFormat:@"%@", properties[@"query"]];
+    NSString *query = [NSString stringWithFormat:@"%@", properties[KeyQuery]];
     if (query) {
         params[FBSDKAppEventParameterNameSearchString] = query;
     }
