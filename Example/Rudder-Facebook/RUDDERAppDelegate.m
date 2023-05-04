@@ -12,15 +12,14 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 @import AppTrackingTransparency;
 
+#import "Rudder_Facebook_Example-Swift.h"
+
 @implementation RUDDERAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
     
-    NSString *writeKey = @"28vO4QX2DtucdUMj5KWMuNqsOfB";
-    NSString *dataPlaneUrl = @"https://rudderstacbumvdrexzj.dataplane.rudderstack.com";
-
     /**
      * This code initializes the SDK when your app launches, and allows the SDK handle logins and sharing from the native Facebook app when you perform a Login or Share action. Otherwise, the user must be logged into Facebook to use the in-app browser to login. Refer Facebook App Event doc for more info: https://developers.facebook.com/docs/app-events/getting-started-app-events-ios
      */
@@ -33,15 +32,24 @@
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         [self requestTracking];
     });
-//    [FBSDKSettings setAdvertiserTrackingEnabled:YES];
     
-    RSConfigBuilder *configBuilder = [[RSConfigBuilder alloc] init];
-    [configBuilder withDataPlaneUrl:dataPlaneUrl];
-    [configBuilder withLoglevel:RSLogLevelNone];
-    [configBuilder withTrackLifecycleEvens:false];
-//    [configBuilder withControlPlaneUrl:@"https://chilly-seahorse-73.loca.lt"];
-    [configBuilder withFactory:[RudderFacebookFactory instance]];
-    [RSClient getInstance:writeKey config:[configBuilder build]];
+    
+    /// Copy the `SampleRudderConfig.plist` and rename it to`RudderConfig.plist` on the same directory.
+    /// Update the values as per your need.
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"RudderConfig" ofType:@"plist"];
+    if (path != nil) {
+        NSURL *url = [NSURL fileURLWithPath:path];
+        RudderConfig *rudderConfig = [RudderConfig createFrom:url];
+        if (rudderConfig != nil) {
+            RSConfigBuilder *configBuilder = [[RSConfigBuilder alloc] init];
+            [configBuilder withDataPlaneUrl:rudderConfig.PROD_DATA_PLANE_URL];
+            [configBuilder withLoglevel:RSLogLevelVerbose];
+            [configBuilder withFactory:[RudderFacebookFactory instance]];
+            [configBuilder withTrackLifecycleEvens:NO];
+            [configBuilder withSleepTimeOut:3];
+            [RSClient getInstance:rudderConfig.WRITE_KEY config:[configBuilder build]];
+        }
+    }
     return YES;
 }
 
@@ -54,14 +62,14 @@
                 case ATTrackingManagerAuthorizationStatusRestricted:
                     break;
                 case ATTrackingManagerAuthorizationStatusAuthorized:
-                    [FBSDKSettings.sharedSettings setAutoLogAppEventsEnabled:true];
-                    [FBSDKSettings.sharedSettings setAdvertiserTrackingEnabled:true];
-                    [FBSDKSettings.sharedSettings setAdvertiserIDCollectionEnabled:true];
+                    FBSDKSettings.sharedSettings.isAutoLogAppEventsEnabled = true;
+                    FBSDKSettings.sharedSettings.isAdvertiserTrackingEnabled = true;
+                    FBSDKSettings.sharedSettings.isAdvertiserIDCollectionEnabled = true;
                     break;
             case ATTrackingManagerAuthorizationStatusDenied:
-                    [FBSDKSettings.sharedSettings setAutoLogAppEventsEnabled:false];
-                    [FBSDKSettings.sharedSettings setAdvertiserTrackingEnabled:false];
-                    [FBSDKSettings.sharedSettings setAdvertiserIDCollectionEnabled:false];
+                    FBSDKSettings.sharedSettings.isAutoLogAppEventsEnabled = false;
+                    FBSDKSettings.sharedSettings.isAdvertiserTrackingEnabled = false;
+                    FBSDKSettings.sharedSettings.isAdvertiserIDCollectionEnabled = false;
                     break;
             default:
                     break;
