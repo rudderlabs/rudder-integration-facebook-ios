@@ -10,10 +10,10 @@ PODS:
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
-  - Rudder (1.13.2)
-  - Rudder-Facebook (2.0.0):
+  - Rudder (1.14.0)
+  - Rudder-Facebook (2.1.0):
     - FBSDKCoreKit (~> 16.0.1)
-    - Rudder (~> 1.0)
+    - Rudder (~> 1.12)
 
 DEPENDENCIES:
   - FBSnapshotTestCase
@@ -36,8 +36,8 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: 2cb033464b2134af0138f87d20b859eb3f9be359
   FBSDKCoreKit_Basics: d37280da2e65872f0e931d15f45d97ea324fec37
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  Rudder: 1353907b7323389ad213f3ef0a30969261f67773
-  Rudder-Facebook: 06e922676d1616c26dc3fc9eaed019c3f514df5e
+  Rudder: 41523d90e7f8040605ca6a803f662a538144c90f
+  Rudder-Facebook: 0f1d705d7d35a2ea9fe50a279972c2c41bb9bd52
 
 PODFILE CHECKSUM: 7bc5675f1c4b3d6df991eedd0fb3fdaaac414a26
 
