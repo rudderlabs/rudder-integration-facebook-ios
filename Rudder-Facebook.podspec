@@ -26,8 +26,8 @@ Pod::Spec.new do |s|
     s.ios.deployment_target = deployment_target
     
     if defined?($FacebookSDKVersion)
-      facebook_sdk_version = $GA4SDKVersion
-      Pod::UI.puts "#{s.name}: Using user specified Facebook SDK version '#{facebook_sdk_version}'"
+      facebook_sdk_version = $FacebookSDKVersion
+      Pod::UI.puts "#{s.name}: Using user specified Facebook SDK version '#{FacebookSDKVersion}'"
     else
       Pod::UI.puts "#{s.name}: Using default facebook SDK version '#{facebook_sdk_version}'"
     end
