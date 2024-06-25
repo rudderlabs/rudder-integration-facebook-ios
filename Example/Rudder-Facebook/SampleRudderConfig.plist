@@ -3,18 +3,18 @@
 <plist version="1.0">
 <dict>
 	<key>WRITE_KEY</key>
-	<string>35PI7HEmgbRe1R0lEYqeh3</string>
+	<string></string>
 	<key>PROD_DATA_PLANE_URL</key>
-	<string>https://rudderstac.dataplane.rudderstack.com</string>
+	<string></string>
 	<key>PROD_CONTROL_PLANE_URL</key>
-	<string>https://api.rudderlabs.com</string>
+	<string></string>
 	<key>LOCAL_DATA_PLANE_URL</key>
-	<string>https://521b-2405-201-8000-614f-54d9-9a90-4bbb-8143.in.ngrok.io</string>
+	<string></string>
 	<key>LOCAL_CONTROL_PLANE_URL</key>
-	<string>https://c7a9-2405-201-8000-614f-54d9-9a90-4bbb-8143.in.ngrok.io</string>
+	<string></string>
 	<key>DEV_DATA_PLANE_URL</key>
-	<string>https://bec3-2405-201-8000-614f-54d9-9a90-4bbb-8143.in.ngrok.io</string>
+	<string></string>
 	<key>DEV_CONTROL_PLANE_URL</key>
-	<string>https://9a50-2405-201-8000-614f-54d9-9a90-4bbb-8143.in.ngrok.io</string>
+	<string></string>
 </dict>
 </plist>
