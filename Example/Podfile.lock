@@ -1,19 +1,25 @@
 PODS:
-  - FBAEMKit (16.0.1):
-    - FBSDKCoreKit_Basics (= 16.0.1)
-  - FBSDKCoreKit (16.0.1):
-    - FBAEMKit (= 16.0.1)
-    - FBSDKCoreKit_Basics (= 16.0.1)
-  - FBSDKCoreKit_Basics (16.0.1)
+  - FBAEMKit (17.0.2):
+    - FBSDKCoreKit_Basics (= 17.0.2)
+  - FBSDKCoreKit (17.0.2):
+    - FBAEMKit (= 17.0.2)
+    - FBSDKCoreKit_Basics (= 17.0.2)
+  - FBSDKCoreKit_Basics (17.0.2)
   - FBSnapshotTestCase (2.1.4):
     - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
-  - Rudder (1.14.0)
+  - MetricsReporter (1.2.1):
+    - RSCrashReporter (= 1.0.1)
+    - RudderKit (= 1.4.0)
+  - RSCrashReporter (1.0.1)
+  - Rudder (1.27.0):
+    - MetricsReporter (= 1.2.1)
   - Rudder-Facebook (2.1.0):
-    - FBSDKCoreKit (~> 16.0.1)
+    - FBSDKCoreKit (~> 17.0.2)
     - Rudder (~> 1.12)
+  - RudderKit (1.4.0)
 
 DEPENDENCIES:
   - FBSnapshotTestCase
@@ -25,20 +31,26 @@ SPEC REPOS:
     - FBSDKCoreKit
     - FBSDKCoreKit_Basics
     - FBSnapshotTestCase
+    - MetricsReporter
+    - RSCrashReporter
     - Rudder
+    - RudderKit
 
 EXTERNAL SOURCES:
   Rudder-Facebook:
     :path: "../"
 
 SPEC CHECKSUMS:
-  FBAEMKit: daac7466b918752f020345be5c7d9787f98cfc07
-  FBSDKCoreKit: 2cb033464b2134af0138f87d20b859eb3f9be359
-  FBSDKCoreKit_Basics: d37280da2e65872f0e931d15f45d97ea324fec37
+  FBAEMKit: 619f96ea65427e8afca240d5b0f4703738dfdf5c
+  FBSDKCoreKit: a5f384db2e9ee84e98494fed8f983d2bd79accff
+  FBSDKCoreKit_Basics: d35c775aaf243a2d731dfae7be3a74b1987285ab
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  Rudder: 41523d90e7f8040605ca6a803f662a538144c90f
-  Rudder-Facebook: 0f1d705d7d35a2ea9fe50a279972c2c41bb9bd52
+  MetricsReporter: 99596ee5003c69949ed2f50acc34aee83c42f843
+  RSCrashReporter: 6b8376ac729b0289ebe0908553e5f56d8171f313
+  Rudder: 3cfcd9e6c5359cd6d49f411101ed9b894e3b64bd
+  Rudder-Facebook: a16ee7b2052a92a19865a31698ab77a6a1706c04
+  RudderKit: f272f9872183946452ac94cd7bb2244a71e6ca8f
 
 PODFILE CHECKSUM: 7bc5675f1c4b3d6df991eedd0fb3fdaaac414a26
 
-COCOAPODS: 1.12.0
+COCOAPODS: 1.15.2

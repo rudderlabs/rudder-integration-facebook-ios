@@ -2,7 +2,7 @@ require 'json'
 
 package = JSON.parse(File.read(File.join(__dir__, 'package.json')))
 
-facebook_sdk_version = '~> 16.0.1'
+facebook_sdk_version = '~> 17.0.2'
 rudder_sdk_version = '~> 1.12'
 deployment_target = '12.0'
 facebook_app_events = 'FBSDKCoreKit'
