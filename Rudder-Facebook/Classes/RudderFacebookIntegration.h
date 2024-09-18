@@ -14,8 +14,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface RudderFacebookIntegration : NSObject<RSIntegration> {
-    NSArray* events;
-    NSArray *TRACK_RESERVED_KEYWORDS;
+    NSArray *events;
+    NSArray *trackReservedKeywords;
 }
 
 @property (nonatomic) BOOL limitedDataUse;
