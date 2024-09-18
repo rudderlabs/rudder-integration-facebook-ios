@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 2.2.1 (2024-09-18)
+
+
+### Bug Fixes
+
+* address duplicate symbol issue ([0c63b4a](https://github.com/rudderlabs/rudder-integration-facebook-ios/commit/0c63b4a47fd0457bea10db5bf695e3efd59c0787))
+
 ## 2.2.0 (2024-06-25)
 
 
