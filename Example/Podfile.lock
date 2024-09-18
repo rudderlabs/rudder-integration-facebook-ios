@@ -1,22 +1,22 @@
 PODS:
-  - FBAEMKit (17.0.2):
-    - FBSDKCoreKit_Basics (= 17.0.2)
-  - FBSDKCoreKit (17.0.2):
-    - FBAEMKit (= 17.0.2)
-    - FBSDKCoreKit_Basics (= 17.0.2)
-  - FBSDKCoreKit_Basics (17.0.2)
+  - FBAEMKit (17.0.3):
+    - FBSDKCoreKit_Basics (= 17.0.3)
+  - FBSDKCoreKit (17.0.3):
+    - FBAEMKit (= 17.0.3)
+    - FBSDKCoreKit_Basics (= 17.0.3)
+  - FBSDKCoreKit_Basics (17.0.3)
   - FBSnapshotTestCase (2.1.4):
     - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
-  - MetricsReporter (1.2.1):
+  - MetricsReporter (2.0.0):
     - RSCrashReporter (= 1.0.1)
     - RudderKit (= 1.4.0)
   - RSCrashReporter (1.0.1)
-  - Rudder (1.27.0):
-    - MetricsReporter (= 1.2.1)
-  - Rudder-Facebook (2.1.0):
+  - Rudder (1.29.0):
+    - MetricsReporter (= 2.0.0)
+  - Rudder-Facebook (2.2.0):
     - FBSDKCoreKit (~> 17.0.2)
     - Rudder (~> 1.12)
   - RudderKit (1.4.0)
@@ -41,14 +41,14 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  FBAEMKit: 619f96ea65427e8afca240d5b0f4703738dfdf5c
-  FBSDKCoreKit: a5f384db2e9ee84e98494fed8f983d2bd79accff
-  FBSDKCoreKit_Basics: d35c775aaf243a2d731dfae7be3a74b1987285ab
+  FBAEMKit: 9900b2edd99a2d21629a6277e6166f14c6215799
+  FBSDKCoreKit: 0791f8f68a8630931a4c12aa23a56cc021551596
+  FBSDKCoreKit_Basics: 46d6b472c0dd0a5a7e972c025033d1c567f54eb4
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  MetricsReporter: 99596ee5003c69949ed2f50acc34aee83c42f843
+  MetricsReporter: 364b98791e868b10e9d512eb50af28d8c11e5cdb
   RSCrashReporter: 6b8376ac729b0289ebe0908553e5f56d8171f313
-  Rudder: 3cfcd9e6c5359cd6d49f411101ed9b894e3b64bd
-  Rudder-Facebook: a16ee7b2052a92a19865a31698ab77a6a1706c04
+  Rudder: 7031e52a04312cbc7a70713cac25528a89e63408
+  Rudder-Facebook: 6e1413f22ec3ed51228f87d5a7ec0ecb15862460
   RudderKit: f272f9872183946452ac94cd7bb2244a71e6ca8f
 
 PODFILE CHECKSUM: 7bc5675f1c4b3d6df991eedd0fb3fdaaac414a26
