@@ -8,11 +8,8 @@
 #import "RudderFacebookIntegration.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
-NSArray* events;
 
 @implementation RudderFacebookIntegration
-
-NSArray *TRACK_RESERVED_KEYWORDS;
 
 - (instancetype)initWithConfig:(NSDictionary *)config withAnalytics:(RSClient *)client {
     self = [super init];
@@ -27,8 +24,8 @@ NSArray *TRACK_RESERVED_KEYWORDS;
             self.dpoCountry = 0;
         }
         
-        events = @[@"identify", @"track", @"screen"];
-        TRACK_RESERVED_KEYWORDS = [[NSArray alloc] initWithObjects:KeyProductId, KeyRating, @"name", KeyOrderId, KeyCurrency, @"description", KeyQuery, @"value", KeyPrice, KeyRevenue, nil];
+        self->events = @[@"identify", @"track", @"screen"];
+        self->trackReservedKeywords = [[NSArray alloc] initWithObjects:KeyProductId, KeyRating, @"name", KeyOrderId, KeyCurrency, @"description", KeyQuery, @"value", KeyPrice, KeyRevenue, nil];
         
         if (self.limitedDataUse) {
             [FBSDKSettings.sharedSettings setDataProcessingOptions:@[@"LDU"] country:self.dpoCountry state:self.dpoState];
@@ -42,7 +39,7 @@ NSArray *TRACK_RESERVED_KEYWORDS;
 }
 
 - (void) processRuderEvent: (nonnull RSMessage *) message {
-    int label = (int) [events indexOfObject:message.type];
+    int label = (int) [self->events indexOfObject:message.type];
     switch(label)
         {
             case 0:
@@ -188,7 +185,7 @@ NSArray *TRACK_RESERVED_KEYWORDS;
 - (void) handleCustomPropeties: (NSDictionary *)properties params: (NSMutableDictionary<NSString *, id> *)params isScreenEvent: (BOOL)isScreenEvent {
     for (NSString *key in properties) {
         NSString *value = [properties objectForKey:key];
-        if (!isScreenEvent && [TRACK_RESERVED_KEYWORDS containsObject:key]) {
+        if (!isScreenEvent && [self->trackReservedKeywords containsObject:key]) {
             continue;
         }
         if ([value isKindOfClass:[NSNumber class]]) {
