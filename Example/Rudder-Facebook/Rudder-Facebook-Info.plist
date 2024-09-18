@@ -20,10 +20,29 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fbAppID</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
+	<key>FacebookAppID</key>
+	<string>AppID</string>
+	<key>FacebookClientToken</key>
+	<string>Client Token</string>
+	<key>FacebookDisplayName</key>
+	<string>Display Name</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>Select allow to send event to Facebook App Events</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -45,22 +64,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>fbAPPID</string>
-			</array>
-		</dict>
-	</array>
-	<key>FacebookAppID</key>
-	<string>APPID</string>
-	<key>FacebookClientToken</key>
-	<string>CLIENTOKEN</string>
-	<key>FacebookDisplayName</key>
-	<string>DISPLAYNAME</string>
-	<key>NSUserTrackingUsageDescription</key>
-	<string>Select allow to send event to Facebook App Events</string>
 </dict>
 </plist>
