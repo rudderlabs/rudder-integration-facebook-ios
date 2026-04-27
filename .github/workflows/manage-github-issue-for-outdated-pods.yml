@@ -5,8 +5,14 @@ on:
     - cron: '0 0 * * 1'
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   check-outdated-pods:
+    permissions:
+      contents: read
+      issues: write
     runs-on: macos-latest
     name: Check outdate pods and create issue if it doesn't exist
     steps:
