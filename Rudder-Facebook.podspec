@@ -2,7 +2,7 @@ require 'json'
 
 package = JSON.parse(File.read(File.join(__dir__, 'package.json')))
 
-facebook_sdk_version = '~> 17.0.2'
+facebook_sdk_version = ['>= 17.0.2', '< 19.0']
 rudder_sdk_version = '~> 1.12'
 deployment_target = '12.0'
 facebook_app_events = 'FBSDKCoreKit'
@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
     
     if defined?($FacebookSDKVersion)
       facebook_sdk_version = $FacebookSDKVersion
-      Pod::UI.puts "#{s.name}: Using user specified Facebook SDK version '#{FacebookSDKVersion}'"
+      Pod::UI.puts "#{s.name}: Using user specified Facebook SDK version '#{$FacebookSDKVersion}'"
     else
       Pod::UI.puts "#{s.name}: Using default facebook SDK version '#{facebook_sdk_version}'"
     end
@@ -40,5 +40,5 @@ Pod::Spec.new do |s|
     end
     
     s.dependency 'Rudder', rudder_sdk_version
-    s.dependency facebook_app_events, facebook_sdk_version
+    s.dependency facebook_app_events, *Array(facebook_sdk_version)
 end
