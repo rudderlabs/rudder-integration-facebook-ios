@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
       facebook_sdk_version = $FacebookSDKVersion
       Pod::UI.puts "#{s.name}: Using user specified Facebook SDK version '#{$FacebookSDKVersion}'"
     else
-      Pod::UI.puts "#{s.name}: Using default facebook SDK version '#{facebook_sdk_version}'"
+      Pod::UI.puts "#{s.name}: Using default facebook SDK version '#{Array(facebook_sdk_version).join(', ')}'"
     end
 
     if defined?($RudderSDKVersion)
