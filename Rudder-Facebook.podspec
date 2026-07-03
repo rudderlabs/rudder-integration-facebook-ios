@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
     s.source_files = 'Rudder-Facebook/Classes/**/*'
     s.ios.deployment_target = deployment_target
     
-    if defined?($FacebookSDKVersion)
+    if defined?($FacebookSDKVersion) && !$FacebookSDKVersion.to_s.empty?
       facebook_sdk_version = $FacebookSDKVersion
       Pod::UI.puts "#{s.name}: Using user specified Facebook SDK version '#{$FacebookSDKVersion}'"
     else
