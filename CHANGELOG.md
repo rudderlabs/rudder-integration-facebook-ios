@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 2.2.2 (2026-07-06)
+
+
+### Bug Fixes
+
+* support Facebook SDK 18 and fix $FacebookSDKVersion override ([#57](https://github.com/rudderlabs/rudder-integration-facebook-ios/issues/57)) ([50d50f0](https://github.com/rudderlabs/rudder-integration-facebook-ios/commit/50d50f01fcc955a1c67be27ccee151e77fc463e0))
+
 ### 2.2.1 (2024-09-18)
 
 
