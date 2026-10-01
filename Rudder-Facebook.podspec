@@ -4,7 +4,7 @@ package = JSON.parse(File.read(File.join(__dir__, 'package.json')))
 
 facebook_sdk_version = ['>= 17.0.2', '< 19.0']
 rudder_sdk_version = '~> 1.12'
-deployment_target = '12.0'
+deployment_target = '15.0'
 facebook_app_events = 'FBSDKCoreKit'
 
 Pod::Spec.new do |s|
@@ -20,7 +20,6 @@ Pod::Spec.new do |s|
     s.license          = { :type => "MIT", :file => "LICENSE.md" }
     s.author           = { 'Rudderlabs' => 'arnab@rudderlabs.com' }
     s.source           = { :git => 'https://github.com/rudderlabs/rudder-integration-facebook-ios.git', :tag => "v#{s.version}" }
-    s.platform         = :ios, "12.0"
 
     s.source_files = 'Rudder-Facebook/Classes/**/*'
     s.ios.deployment_target = deployment_target
