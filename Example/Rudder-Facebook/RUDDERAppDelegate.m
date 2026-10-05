@@ -106,3 +106,40 @@
 }
 
 @end
+
+#pragma mark - UIScene lifecycle
+
+@interface RUDDERSceneDelegate : UIResponder <UIWindowSceneDelegate>
+@property (strong, nonatomic) UIWindow *window;
+@end
+
+@implementation RUDDERSceneDelegate
+
+// Under UIScene, URLs arrive here; forward them to the Facebook SDK for
+// Login/Share callbacks.
+- (void)forwardURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts {
+    for (UIOpenURLContext *context in URLContexts) {
+        NSMutableDictionary<UIApplicationOpenURLOptionsKey, id> *options = [[NSMutableDictionary alloc] init];
+        if (context.options.sourceApplication != nil) {
+            options[UIApplicationOpenURLOptionsSourceApplicationKey] = context.options.sourceApplication;
+        }
+        if (context.options.annotation != nil) {
+            options[UIApplicationOpenURLOptionsAnnotationKey] = context.options.annotation;
+        }
+        [[FBSDKApplicationDelegate sharedInstance] application:[UIApplication sharedApplication]
+                                                       openURL:context.URL
+                                                       options:options];
+    }
+}
+
+- (void)scene:(UIScene *)scene willConnectToSession:(UISceneSession *)session options:(UISceneConnectionOptions *)connectionOptions {
+    if (connectionOptions.URLContexts.count > 0) {
+        [self forwardURLContexts:connectionOptions.URLContexts];
+    }
+}
+
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts {
+    [self forwardURLContexts:URLContexts];
+}
+
+@end

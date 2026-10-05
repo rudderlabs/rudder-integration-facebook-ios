@@ -16,8 +16,8 @@ PODS:
   - RSCrashReporter (1.0.1)
   - Rudder (1.29.0):
     - MetricsReporter (= 2.0.0)
-  - Rudder-Facebook (2.2.0):
-    - FBSDKCoreKit (~> 17.0.2)
+  - Rudder-Facebook (2.2.2):
+    - FBSDKCoreKit (< 19.0, >= 17.0.2)
     - Rudder (~> 1.12)
   - RudderKit (1.4.0)
 
@@ -48,9 +48,9 @@ SPEC CHECKSUMS:
   MetricsReporter: 364b98791e868b10e9d512eb50af28d8c11e5cdb
   RSCrashReporter: 6b8376ac729b0289ebe0908553e5f56d8171f313
   Rudder: 7031e52a04312cbc7a70713cac25528a89e63408
-  Rudder-Facebook: 6e1413f22ec3ed51228f87d5a7ec0ecb15862460
+  Rudder-Facebook: 656d4fa8eb693350e22a60206279ee6b488efbe8
   RudderKit: f272f9872183946452ac94cd7bb2244a71e6ca8f
 
-PODFILE CHECKSUM: 7bc5675f1c4b3d6df991eedd0fb3fdaaac414a26
+PODFILE CHECKSUM: 031f1c5c3cafdf17828067e333bbbe694cfc1796
 
-COCOAPODS: 1.15.2
+COCOAPODS: 1.17.0
