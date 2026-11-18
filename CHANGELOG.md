@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.3.0](https://github.com/rudderlabs/rudder-integration-facebook-ios/compare/v2.2.2...v2.3.0) (2026-11-18)
+
+
+### Features
+
+* raise minimum iOS deployment target to 15.0 ([#64](https://github.com/rudderlabs/rudder-integration-facebook-ios/issues/64)) ([af02d4d](https://github.com/rudderlabs/rudder-integration-facebook-ios/commit/af02d4d640220789c4cc7692acf1abfd3d0f99ba))
+
+
+### Bug Fixes
+
+* sdk-5218 correct ios release workflows ([#61](https://github.com/rudderlabs/rudder-integration-facebook-ios/issues/61)) ([56b74f8](https://github.com/rudderlabs/rudder-integration-facebook-ios/commit/56b74f83fa51ea6a59c531607de4672b9047d9fa))
+
 ### 2.2.2 (2026-07-06)
 
 
