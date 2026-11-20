@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.4.0](https://github.com/rudderlabs/rudder-integration-facebook-ios/compare/v2.3.0...v2.4.0) (2026-11-20)
+
+
+### Features
+
+* add swift package manager support ([#67](https://github.com/rudderlabs/rudder-integration-facebook-ios/issues/67)) ([7453233](https://github.com/rudderlabs/rudder-integration-facebook-ios/commit/7453233735c7e151a2256362b505433f8d124de0))
+
 ## [2.3.0](https://github.com/rudderlabs/rudder-integration-facebook-ios/compare/v2.2.2...v2.3.0) (2026-11-18)
 
 
